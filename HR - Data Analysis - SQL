@@ -1,0 +1,46 @@
+Use projects;
+/* Gender*/
+select race, count(*)as Amount
+from hr
+where age >= 18
+group by race
+order by count(*) Desc;
+
+Select min(age) as youngest, max(age) as oldest from hr where age>=18;
+
+Select
+  case
+	When age >=18 and age <=24 Then '18-24'
+	When age >=25 and age <=34 Then '18-24'
+	When age >=35 and age <=44 Then '35-44'
+	When age >=44 and age <=54 Then '44-54'
+	When age >=55 and age <=64 Then '55-64'
+	Else '65+'
+  End as age_group,gender,count(*) AS Amount
+from hr
+where age >= 18
+group by age_group , gender
+order by age_group, gender;    
+
+select location,count(*) as Amount
+from hr
+where age >=18
+group by location;
+
+select department,gender,count(*)as Amount
+from hr
+where age >=18
+group by department,gender
+order by department;
+
+select jobtitle,count(*)as Amount
+from hr
+where age >=18
+group by jobtitle
+order by jobtitle desc;
+
+select location_state ,count(*) as Amount
+from hr
+where age >=18
+group by location_state
+order by Amount desc;
